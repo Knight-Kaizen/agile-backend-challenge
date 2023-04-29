@@ -1,10 +1,19 @@
 const express = require('express');
 const bodyParser  = require('body-parser');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(bodyParser.json())
+dotenv.config();
+
+const port = process.env.PORT || 8001;
 
 //Get request to read any event based on some queries
+app.get('/', (req, res)=>{
+    res.send(`
+        Backend working
+    `)
+})
 
 app.get('/events', (req, res)=>{
     
@@ -44,6 +53,6 @@ app.delete('/events/:id', (req, res)=>{
 })
 
 //Health api, to check if our server is up or not.
-app.listen(8001, ()=>{
-    console.log('listening to port 8001');
+app.listen(port, ()=>{
+    console.log('listening to port: ', port);
 });
