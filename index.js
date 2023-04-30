@@ -19,13 +19,13 @@ app.get('/', (req, res) => {
 })
 
 //POST request which will take data from api and create an event
-app.post('/events', eventController.createEvent);
+app.post('/api/v3/app/events', eventController.createEvent);
 
-app.get('/events', eventController.getEvents);
+app.get('/api/v3/app/events', eventController.getEvents);
 
-app.put('/events/:id', eventController.updateEvent);
+app.put('/api/v3/app/events/:id', eventController.updateEvent);
 
-app.delete('/events/:id', eventController.deleteEvent);
+app.delete('/api/v3/app/events/:id', eventController.deleteEvent);
 //Health api, to check if our server is up or not.
 app.listen(port, () => {
     console.log('listening to port: ', port);
